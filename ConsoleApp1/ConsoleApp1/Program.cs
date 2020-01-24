@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1 {
     class Program {
-        static void Main(string[] args) {
+        static async Task Main(string[] args) {
             Console.WriteLine("Press any key when ready.");
             Console.ReadLine();
             await foreach(var e in MessagesAsync()) {
@@ -17,7 +17,7 @@ namespace ConsoleApp1 {
             yield return "world!";
         }
 
-        public async IAsyncEnumerable<string> MessagesAsync() {
+        public static async IAsyncEnumerable<string> MessagesAsync() {
             await Task.Delay(2000);
             yield return "Hello!";
             await Task.Delay(2000);
